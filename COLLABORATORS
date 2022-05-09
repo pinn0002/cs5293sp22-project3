@@ -1,1 +1,9 @@
 
+stackoverflow|https://stackoverflow.com/questions/68387063/how-can-i-fix-this-typeerror-append-takes-exactly-one-argument-3-given-for| to split
+geeksforgeeks|https://www.geeksforgeeks.org/simple-ways-to-read-tsv-files-in-python/| read tsv files
+stackoverflow|https://stackoverflow.com/questions/46835197/python-list-of-dictionary-stores-only-last-appended-value-in-every-iteration| copy dictionary values
+cmdlinetips.com|https://cmdlinetips.com/2020/03/save-a-pandas-data-frame-as-csv-file/#:~:text=How%20To%20Write%20Pandas%20DataFrame%20as%20TSV%20File%3F,sep%3D%E2%80%9D%5Ct%E2%80%9D.|write to tsv file
+stackoverflow|https://stackoverflow.com/questions/61740228/cant-read-quotes-correctly-with-pandas-read-csv|avoid quoting
+shanelynn|https://www.shanelynn.ie/pandas-csv-error-error-tokenizing-data-c-error-eof-inside-string-starting-at-line/|error in tokenizing data
+stackoverflow|https://stackoverflow.com/questions/41800424/remove-rows-in-python-less-than-a-certain-value|remove rows
+stackoverflow|https://stackoverflow.com/questions/32940709/missing-first-row-while-reading-from-file-python-pandas|missing first row
