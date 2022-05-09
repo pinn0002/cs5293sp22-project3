@@ -18,6 +18,8 @@ While calculating precision score one zerodivision warning is created.
 
 For some reason, process is getting killed when I run in GCP but through pycharm I'm able to obtain output in my local machine. I have provided sample output below for confirmation.
 
+I haven't written a function to obain latest changes from github instead I have taken all latest records to my unredactor.tsv
+
 
 Libraries used in this project:
 
