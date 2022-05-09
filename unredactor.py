@@ -66,8 +66,8 @@ def doextraction(glob_text):
     for thefile in glob.glob(glob_text):
         file_df = pd.read_csv(thefile, sep='\t', usecols=[0,1, 2, 3],header=None,engine="python", quoting=csv.QUOTE_NONE)
         file_df.columns = ['username', 'typeofdata', 'name', 'text']
-        xtrain = file_df[(file_df['typeofdata'] == 'training') |(file_df['typeofdata'] == 'validation')]['text'].tolist()
-        ytrain = file_df[(file_df['typeofdata'] == 'training')|(file_df['typeofdata'] == 'validation')]['name'].tolist()
+        xtrain = file_df[file_df['typeofdata'] == 'training']['text'].tolist()
+        ytrain = file_df[file_df['typeofdata'] == 'training')]['name'].tolist()
         for row in xtrain:
             traindata.append(get_entity(row))
     return traindata,ytrain
