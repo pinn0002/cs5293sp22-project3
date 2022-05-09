@@ -21,11 +21,11 @@ from nltk import pos_tag
 from nltk import ne_chunk
 
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.preprocessing import LabelEncoder
-from sklearn.neural_network import MLPClassifier
-from sklearn.linear_model import LogisticRegression
+# from sklearn.preprocessing import LabelEncoder
+# from sklearn.neural_network import MLPClassifier
+# from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.neighbors import KNeighborsClassifier
+# from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import precision_score, recall_score,f1_score,accuracy_score
 from nltk.util import ngrams
 from textblob import TextBlob
@@ -138,7 +138,7 @@ if __name__ == '__main__':
 
     # log = LogisticRegression(max_iter=1000)
     # log.fit(X_train_vec,y_train)
-    vec = RandomForestClassifier(n_estimators=1000)
+    vec = RandomForestClassifier(n_estimators=100)
     vec.fit(X_train_vec, y_train)
     print("training done")
     # vec = RandomForestClassifier()
@@ -148,7 +148,7 @@ if __name__ == '__main__':
     # cuisine1 = LabelEncoder().fit(y_train).inverse_transform(y_pred1).tolist()
     # print(cuisine1)
     #
-    score1 = f1_score(y_test, y_pred1, average='micro')
+    score1 = f1_score(y_test, y_pred1, average='macro')
     print('F-1 score1 : {}'.format(np.round(score1, 4)))
     accuracy1 = accuracy_score(y_test, y_pred1)
     print("accuracy1:", accuracy1)
