@@ -19,7 +19,7 @@ While calculating precision score one zerodivision warning is created.
 
 Libraries used in this project:
 
-glob, sys, nltk, sklearn, pandas, copy, re, numpy, timeblob, 
+glob, sys, nltk, sklearn, pandas, copy, re, numpy, timeblob, csv, textblob
 
 
 Assumptions:
