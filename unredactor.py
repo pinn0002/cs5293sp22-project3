@@ -21,11 +21,11 @@ from nltk import pos_tag
 from nltk import ne_chunk
 
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.preprocessing import LabelEncoder
-from sklearn.neural_network import MLPClassifier
-from sklearn.linear_model import LogisticRegression
+# from sklearn.preprocessing import LabelEncoder
+# from sklearn.neural_network import MLPClassifier
+# from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.neighbors import KNeighborsClassifier
+# from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import precision_score, recall_score,f1_score,accuracy_score
 from nltk.util import ngrams
 from textblob import TextBlob
@@ -126,10 +126,10 @@ def get_redactfeatures(text):
 if __name__ == '__main__':
     # Usage: python3 entity-extractor.py 'train/pos/*.txt'
     X_train,y_train = doextraction(sys.argv[-1])
-    print("xtrain",X_train)
+#     print("xtrain",X_train)
     X_test, y_test = doextractredaction(sys.argv[-1])
-    print("ytestvalue",y_test[0])
-    print("xtest",X_test[0])
+#     print("ytestvalue",y_test[0])
+#     print("xtest",X_test[0])
     vectorizer = DictVectorizer(sparse=False)
     X_train_vec = vectorizer.fit_transform(X_train)
     # Y_train_vec = LabelEncoder().fit_transform(y_train)
@@ -138,22 +138,25 @@ if __name__ == '__main__':
 
     # log = LogisticRegression(max_iter=1000)
     # log.fit(X_train_vec,y_train)
-    vec = RandomForestClassifier(n_estimators=1000)
+    vec = RandomForestClassifier(n_estimators=100)
     vec.fit(X_train_vec, y_train)
     print("training done")
     # vec = RandomForestClassifier()
     # vec.fit(X_train_vec,y_train)
     y_pred1 = vec.predict(X_test_vec)
-    print(y_pred1)
+    print("Actual values",y_test)
+    print("Predicted values", y_pred1)
     # cuisine1 = LabelEncoder().fit(y_train).inverse_transform(y_pred1).tolist()
     # print(cuisine1)
     #
-    score1 = f1_score(y_test, y_pred1, average='micro')
+    score1 = f1_score(y_test, y_pred1, average='macro')
     print('F-1 score1 : {}'.format(np.round(score1, 4)))
     accuracy1 = accuracy_score(y_test, y_pred1)
     print("accuracy1:", accuracy1)
     precision1 = precision_score(y_test, y_pred1, average='macro')
     print("precison1:", precision1)
+    recall = recall_score(y_test, y_pred1, average='macro')
+    print("recall:", recall)
 
 
     # # vec = MLPClassifier(hidden_layer_sizes=(100,100,100), max_iter =5000,alpha=0.0001,solver='sgd',verbose=10, random_state=21, tol=0.0000001)
@@ -176,5 +179,3 @@ if __name__ == '__main__':
     #
     # clf = MultinomialNB()
     # clf.fit(X_train_vec,y_train)
-
-
