@@ -16,6 +16,8 @@ Any other file format except .tsv will not be accepted as input file format.
 
 While calculating precision score one zerodivision warning is created.
 
+For some reason, process is getting killed when I run in GCP but through pycharm I'm able to obtain output in my local machine.
+
 
 Libraries used in this project:
 
