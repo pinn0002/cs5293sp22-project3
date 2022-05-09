@@ -126,10 +126,10 @@ def get_redactfeatures(text):
 if __name__ == '__main__':
     # Usage: python3 entity-extractor.py 'train/pos/*.txt'
     X_train,y_train = doextraction(sys.argv[-1])
-    print("xtrain",X_train)
+#     print("xtrain",X_train)
     X_test, y_test = doextractredaction(sys.argv[-1])
-    print("ytestvalue",y_test[0])
-    print("xtest",X_test[0])
+#     print("ytestvalue",y_test[0])
+#     print("xtest",X_test[0])
     vectorizer = DictVectorizer(sparse=False)
     X_train_vec = vectorizer.fit_transform(X_train)
     # Y_train_vec = LabelEncoder().fit_transform(y_train)
@@ -144,7 +144,8 @@ if __name__ == '__main__':
     # vec = RandomForestClassifier()
     # vec.fit(X_train_vec,y_train)
     y_pred1 = vec.predict(X_test_vec)
-    print(y_pred1)
+    print("Actual values",y_test)
+    print("Predicted values", y_pred1)
     # cuisine1 = LabelEncoder().fit(y_train).inverse_transform(y_pred1).tolist()
     # print(cuisine1)
     #
@@ -154,6 +155,8 @@ if __name__ == '__main__':
     print("accuracy1:", accuracy1)
     precision1 = precision_score(y_test, y_pred1, average='macro')
     print("precison1:", precision1)
+    recall = recall_score(y_test, y_pred1, average='macro')
+    print("recall:", recall)
 
 
     # # vec = MLPClassifier(hidden_layer_sizes=(100,100,100), max_iter =5000,alpha=0.0001,solver='sgd',verbose=10, random_state=21, tol=0.0000001)
